@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/symetrical-robot/static/css/main.ad6c4c91.css",
-    "main.js": "/symetrical-robot/static/js/main.38fc8443.js",
-    "static/js/787.fd003979.chunk.js": "/symetrical-robot/static/js/787.fd003979.chunk.js",
-    "static/media/logo.svg": "/symetrical-robot/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/symetrical-robot/index.html",
-    "main.ad6c4c91.css.map": "/symetrical-robot/static/css/main.ad6c4c91.css.map",
-    "main.38fc8443.js.map": "/symetrical-robot/static/js/main.38fc8443.js.map",
-    "787.fd003979.chunk.js.map": "/symetrical-robot/static/js/787.fd003979.chunk.js.map"
+    "main.css": "/symmetrical-robot/static/css/main.ad6c4c91.css",
+    "main.js": "/symmetrical-robot/static/js/main.0a5c2b74.js",
+    "static/js/787.fd003979.chunk.js": "/symmetrical-robot/static/js/787.fd003979.chunk.js",
+    "static/media/logo.svg": "/symmetrical-robot/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/symmetrical-robot/index.html",
+    "main.ad6c4c91.css.map": "/symmetrical-robot/static/css/main.ad6c4c91.css.map",
+    "main.0a5c2b74.js.map": "/symmetrical-robot/static/js/main.0a5c2b74.js.map",
+    "787.fd003979.chunk.js.map": "/symmetrical-robot/static/js/787.fd003979.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ad6c4c91.css",
-    "static/js/main.38fc8443.js"
+    "static/js/main.0a5c2b74.js"
   ]
 }
