@@ -78,11 +78,11 @@ function ScoreBoard() {
     totalDomains: 0,
   });
   const domainSetters = {
-    setWorker: (value) => setCitizenState(prev => ({ ...prev, worker: value })),
-    setSoldier: (value) => setCitizenState(prev => ({ ...prev, soldier: value })),
-    setShadow: (value) => setCitizenState(prev => ({ ...prev, shadow: value })),
-    setHoly: (value) => setCitizenState(prev => ({ ...prev, holy: value })),
-    setTotalDomains: (value) => setCitizenState(prev => ({ ...prev, totalCitizens: value })),
+    setWorker: (value) => setDomainState(prev => ({ ...prev, worker: value })),
+    setSoldier: (value) => setDomainState(prev => ({ ...prev, soldier: value })),
+    setShadow: (value) => setDomainState(prev => ({ ...prev, shadow: value })),
+    setHoly: (value) => setDomainState(prev => ({ ...prev, holy: value })),
+    setTotalDomains: (value) => setDomainState(prev => ({ ...prev, totalCitizens: value })),
   };
 
   return (

@@ -1,0 +1,28 @@
+/* CounterButtonGroup.css */
+
+.plus-button{
+  color: rgb(61, 255, 61);
+  background-color: green;
+}
+
+.minus-button{
+  color: rgb(242, 227, 227);
+  background-color: red;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .form-group input {
+    width: 50%;
+    text-align: center;
+  }
+
+  label {
+    font-size: 1.2em;
+    font-weight: bold;
+   
+  }
+  
