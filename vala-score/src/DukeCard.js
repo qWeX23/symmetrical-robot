@@ -91,40 +91,36 @@ function DukeCard({ monsterState, resourceState, citizenState, domainsState }) {
       score = Math.floor(score);
       score = score + resourceState.preVictory
     return( <div className="duke-counter">
-    <h2>Duke Counter</h2>
     <div>
-        <label for="duke-select">Choose a Duke:</label>
         <select id="duke-select" value={duke} onChange={(e) => setDuke(e.target.value)}>
-  <option value="Aguilar the Gilded Knight">Aguilar the Gilded Knight</option>
-  <option value="Cornelius the Dreamer">Cornelius the Dreamer</option>
-  <option value="Daniella the Huntress">Daniella the Huntress</option>
-  <option value="El'syn, Stain of Shadows">El'syn, Stain of Shadows</option>
-  <option value="Elysium the Allsmith">Elysium the Allsmith</option>
-  <option value="Gurira the Guardian">Gurira the Guardian</option>
-  <option value="High Priestess Marianna">High Priestess Marianna</option>
-  <option value="Hrothgar the Conqueror">Hrothgar the Conqueror</option>
-  <option value="Isabella the Righteous">Isabella the Righteous</option>
-  <option value="Jes'kala the Joyous Knight">Jes'kala the Joyous Knight</option>
-  <option value="Karsten the Wolf">Karsten the Wolf</option>
-  <option value="Lekzand'r the Protector">Lekzand'r the Protector</option>
-  <option value="Mico the Monster Slayer">Mico the Monster Slayer</option>
-  <option value="Mulholland the Brave">Mulholland the Brave</option>
-  <option value="Node, Master of Swords">Node, Master of Swords</option>
-  <option value="Pas'cal the Gray Hunter">Pas'cal the Gray Hunter</option>
-  <option value="Reese the Firebrand">Reese the Firebrand</option>
-  <option value="Shem the North Sea Guardian">Shem the North Sea Guardian</option>
-  <option value="Simon the Unclean">Simon the Unclean</option>
-  <option value="Sir Gustavo the Wrathborn">Sir Gustavo the Wrathborn</option>
-  <option value="Sir Roberts of Stoneblood">Sir Roberts of Stoneblood</option>
-  <option value="Waryn, Master of Rogues">Waryn, Master of Rogues</option>
-</select>
+          <option value="Aguilar the Gilded Knight">Aguilar the Gilded Knight</option>
+          <option value="Cornelius the Dreamer">Cornelius the Dreamer</option>
+          <option value="Daniella the Huntress">Daniella the Huntress</option>
+          <option value="El'syn, Stain of Shadows">El'syn, Stain of Shadows</option>
+          <option value="Elysium the Allsmith">Elysium the Allsmith</option>
+          <option value="Gurira the Guardian">Gurira the Guardian</option>
+          <option value="High Priestess Marianna">High Priestess Marianna</option>
+          <option value="Hrothgar the Conqueror">Hrothgar the Conqueror</option>
+          <option value="Isabella the Righteous">Isabella the Righteous</option>
+          <option value="Jes'kala the Joyous Knight">Jes'kala the Joyous Knight</option>
+          <option value="Karsten the Wolf">Karsten the Wolf</option>
+          <option value="Lekzand'r the Protector">Lekzand'r the Protector</option>
+          <option value="Mico the Monster Slayer">Mico the Monster Slayer</option>
+          <option value="Mulholland the Brave">Mulholland the Brave</option>
+          <option value="Node, Master of Swords">Node, Master of Swords</option>
+          <option value="Pas'cal the Gray Hunter">Pas'cal the Gray Hunter</option>
+          <option value="Reese the Firebrand">Reese the Firebrand</option>
+          <option value="Shem the North Sea Guardian">Shem the North Sea Guardian</option>
+          <option value="Simon the Unclean">Simon the Unclean</option>
+          <option value="Sir Gustavo the Wrathborn">Sir Gustavo the Wrathborn</option>
+          <option value="Sir Roberts of Stoneblood">Sir Roberts of Stoneblood</option>
+          <option value="Waryn, Master of Rogues">Waryn, Master of Rogues</option>
+        </select>
       </div>
-    <div>
-      Duke: {duke}
-    </div>
-    <div>
+    
+    <h2>
       Score: {score}
-    </div>
+    </h2>
   </div>
 );
 }

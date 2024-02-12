@@ -6,7 +6,7 @@ function CitizenCounter({state,setters}) {
 
   return (
     <div className="citizen-counter">
-        <h2>Citizen Counter</h2>
+        <h3>Citizen Counter</h3>
         <CounterButtonGroup id='total-citizens-counter' label='Total Citizens' value={totalCitizens} setValue={setTotalCitizens} />
         <CounterButtonGroup id='worker-counter' label='Worker' value={worker} setValue={setWorker} />
         <CounterButtonGroup id='soldier-counter' label='Soldier' value={soldier} setValue={setSoldier} />

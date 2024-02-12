@@ -7,7 +7,7 @@ function ResourceCounter({state, setters}) {
 
   return (
     <div className="resource-counter">
-        <h2>Resources</h2>
+        <h3>Resources</h3>
       
         <CounterButtonGroup id='gold-input' label='Gold' value={gold} setValue={setGold} />
         <CounterButtonGroup id='magic-input' label='Magic' value={magic} setValue={setMagic} />

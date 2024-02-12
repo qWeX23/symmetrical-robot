@@ -2,27 +2,52 @@
 
 .plus-button{
   color: rgb(61, 255, 61);
-  background-color: green;
+  background-color: limegreen;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
 }
 
 .minus-button{
   color: rgb(242, 227, 227);
-  background-color: red;
+  background-color: tomato;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  .form-group input {
-    width: 50%;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  /* margin-bottom: 10px; */
+  
+}
 
-  label {
-    font-size: 1.2em;
-    font-weight: bold;
-   
+.form-group input {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  width: 50%;
+  font-size: calc(9vw + 1.25vh + .5vmin); /* Adjust as needed */
+
+} 
+
+
+.form-group input:focus {
+  color: rgb(4, 0, 131);
+  background-color: rgb(245, 253, 189);
+}
+
+  .form-group button {
+    aspect-ratio: 1/1;
+    width: 7em;
   }
+ .counter-value{
+  width:100px;
+  text-align: center;
+  font-size: calc(9vw + 1.25vh + .5vmin); /* Adjust as needed */
+
+ }
   

@@ -7,10 +7,11 @@ function MonsterCounter({state, setters,totalMonsters}) {
 
   return (
     <div className="monster-counter">
-        <h4>Monster Area</h4>
+        <h3>Monsters</h3>
         <div>
             Total Monsters: {totalMonsters}
         </div>
+        <h4>Monster Area</h4>
 
       <CounterButtonGroup id='hills-counter' label='Hills' value={hills} setValue={setHills}></CounterButtonGroup>
       <CounterButtonGroup id='ruins-counter' label='Ruins' value={ruins} setValue={setRuins}></CounterButtonGroup>
@@ -20,8 +21,8 @@ function MonsterCounter({state, setters,totalMonsters}) {
       <CounterButtonGroup id='caverns-counter' label='Caverns' value={caverns} setValue={setCaverns}></CounterButtonGroup>
       <CounterButtonGroup id='barrens-counter' label='Barrens' value={barrens} setValue={setBarrens}></CounterButtonGroup>
       <CounterButtonGroup id='valley-counter' label='Valley' value={valley} setValue={setValley}></CounterButtonGroup>
+      <h4>Monster Type</h4>
       
-     <h4>Monster Type</h4>
       <CounterButtonGroup id='boss-counter' label='Boss' value={boss} setValue={setBoss}></CounterButtonGroup>
       <CounterButtonGroup id='minion-counter' label='Minion' value={minion} setValue={setMinion}></CounterButtonGroup>
       <CounterButtonGroup id='beast-counter' label='Beast' value={beast} setValue={setBeast} />

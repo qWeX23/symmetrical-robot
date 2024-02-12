@@ -82,26 +82,16 @@ function ScoreBoard() {
     setSoldier: (value) => setDomainState(prev => ({ ...prev, soldier: value })),
     setShadow: (value) => setDomainState(prev => ({ ...prev, shadow: value })),
     setHoly: (value) => setDomainState(prev => ({ ...prev, holy: value })),
-    setTotalDomains: (value) => setDomainState(prev => ({ ...prev, totalCitizens: value })),
+    setTotalDomains: (value) => setDomainState(prev => ({ ...prev, totalDomains: value })),
   };
 
   return (
     <div className="score-board">
-      <div className='duke-card'>
         <DukeCard monsterState={monsterState} resourceState={resourcesState} citizenState={citizenState} domainsState={domainState}></DukeCard>
-      </div>
-      <div className="resource-counter">
         <ResourceCounter state={resourcesState} setters={resourcesSetters}/>
-      </div>
-      <div className='monster-counter'>
         <MonsterCounter state={monsterState} setters={monsterSetters} totalMonsters={totalMonsters}/>
-      </div>
-      <div className='citizen-counter'>
         <CitizenCounter state={citizenState} setters={citizenSetters}/>
-      </div>
-      <div className='domain-counter'>
         <DomainCounter state={domainState} setters={domainSetters}/>
-      </div>
     </div>
   );
 }
