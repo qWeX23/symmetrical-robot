@@ -6,6 +6,10 @@ function DukeCard({ monsterState, resourceState, citizenState, domainsState }) {
 
     const worker = citizenState.worker + domainsState.worker;
     const soldier = citizenState.soldier + domainsState.soldier;
+   console.log("soldier");
+    console.log(soldier);
+    console.log(citizenState.soldier);
+    console.log(domainsState.soldier);
     const thief = citizenState.shadow + domainsState.shadow;
     const holy = citizenState.holy + domainsState.holy;
 
@@ -20,70 +24,76 @@ function DukeCard({ monsterState, resourceState, citizenState, domainsState }) {
 
     switch (duke) {
         case 'Aguilar the Gilded Knight':
-          score = totalMonsters + 2 * totalDomains + totalResources / 4;
+          score = totalMonsters + 2 * totalDomains + (totalResources / 4);
           break;
         case 'Cornelius the Dreamer':
-          score = 3 * totalDomains + totalResources / 3;
+          score = 3 * totalDomains + (totalResources / 3);
           break;
         case 'Daniella the Huntress':
-          score = 2 * thief + 2 * beast + totalResources / 3;
+          score = 2 * thief + 2 * beast + (totalResources / 3);
           break;
         case "El'syn, Stain of Shadows":
-          score = 2 * holy + 2 * thief + totalResources / 4;
+          score = 2 * holy + 2 * thief + (totalResources / 4);
           break;
         case 'Elysium the Allsmith':
-          score = worker + soldier + thief + holy + totalResources / 4;
+          console.log('Elysium the Allsmith');
+          console.log(worker);
+          console.log(soldier);
+          console.log(thief);
+          console.log(holy);
+          console.log(totalResources);
+          score = worker + soldier + thief + holy + (totalResources / 4);
           break;
         case 'Gurira the Guardian':
-          score = totalMonsters + holy + totalResources / 3;
+          score = totalMonsters + holy + (totalResources / 3);
           break;
         case 'High Priestess Marianna':
-          score = 2 * holy + minion + totalResources / 3;
+          score = 2 * holy + minion + (totalResources / 3);
           break;
         case 'Hrothgar the Conqueror':
-          score = 2 * totalMonsters + titan + totalResources / 4;
+          score = 2 * totalMonsters + titan + (totalResources / 4);
           break;
         case 'Isabella the Righteous':
-          score = soldier + 2 * holy + totalResources / 3;
+          score = soldier + 2 * holy + (totalResources / 3);
           break;
         case 'Jes\'kala the Joyous Knight':
-          score = 2 * totalMonsters + totalDomains + totalResources / 4;
+          score = 2 * totalMonsters + totalDomains + (totalResources / 4);
           break;
         case 'Karsten the Wolf':
-          score = worker + totalCitizens + totalResources / 4;
+          score = worker + totalCitizens + (totalResources / 4);
           break;
         case 'Lekzand\'r the Protector':
-          score = worker + 2 * holy + totalResources / 3;
+          score = worker + 2 * holy + (totalResources / 3);
           break;
         case 'Mico the Monster Slayer':
-          score = totalMonsters + 5 * boss + totalResources / 2;
+          score = totalMonsters + 5 * boss + (totalResources / 2);
           break;
         case 'Mulholland the Brave':
-          score = 2 * totalCitizens + totalResources / 4;
+          score = 2 * totalCitizens + (totalResources / 4);
           break;
         case 'Node, Master of Swords':
-          score = soldier + 2 * thief + totalResources / 3;
+          score = soldier + 2 * thief + (totalResources / 3);
           break;
         case 'Pas\'cal the Gray Hunter':
-          score = 2 * totalMonsters + soldier + totalResources / 5;
+          score = 2 * totalMonsters + soldier + (totalResources / 5);
           break;
         case 'Reese the Firebrand':
-          score = totalCitizens + totalDomains + totalMonsters + totalResources / 4;
+          score = totalCitizens + totalDomains + totalMonsters + (totalResources / 4);
           break;
         case 'Shem the North Sea Guardian':
-          score = 2 * totalMonsters + worker + totalResources / 5;
+          score = 2 * totalMonsters + worker + (totalResources / 5);
           break;
         case 'Simon the Unclean':
-          score = worker + soldier + totalResources / 2;
+          score = worker + soldier + (totalResources / 2);
           break;
         case 'Sir Gustavo the Wrathborn':
-          score = 2 * soldier + totalDomains + totalResources / 5;
+          score = 2 * soldier + totalDomains + (totalResources / 5);
           break;
         case 'Sir Roberts of Stoneblood':
-          score = totalMonsters + thief + totalResources / 3;
+          score = totalMonsters + thief + (totalResources / 3);
           break;
         case 'Waryn, Master of Rogues':
-          score = worker + 2 * thief + totalResources / 3;
+          score = worker + 2 * thief + (totalResources / 3);
           break;
         default:
           score = 0;

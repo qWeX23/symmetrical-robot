@@ -52,6 +52,7 @@ function CounterButtonGroup({ value, setValue, id, label }) {
           onMouseLeave={stopChanging}
           onTouchStart={startIncrement}
           onTouchEnd={stopChanging}
+          onClick={() => setValue(prevValue => prevValue + 1)}
         >
           +
         </button>
@@ -63,6 +64,7 @@ function CounterButtonGroup({ value, setValue, id, label }) {
           onMouseLeave={stopChanging}
           onTouchStart={startDecrement}
           onTouchEnd={stopChanging}
+          onClick={() => setValue(prevValue => prevValue - 1)}
         >
           -
         </button>
