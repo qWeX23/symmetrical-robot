@@ -1,5 +1,12 @@
 /* CounterButtonGroup.css */
 
+button {
+  -webkit-user-select: none;  /* Chrome, Safari, Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* IE/Edge */
+  user-select: none;          /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 .plus-button{
   color: rgb(61, 255, 61);
   background-color: limegreen;
