@@ -22,18 +22,32 @@ function ScoreBoard() {
   };
 
   const [hills, setHills] = useState(0);
+  const [showHills, setShowHills] = useState(false);
   const [ruins, setRuins] = useState(0);
+  const [showRuins, setShowRuins] = useState(false);
   const [forest, setForest] = useState(0);
+  const [showForest, setShowForest] = useState(false);
   const [swamp, setSwamp] = useState(0);
+  const [showSwamp, setShowSwamp] = useState(false);
   const [mountains, setMountains] = useState(0);
+  const [showMountains, setShowMountains] = useState(false);
   const [caverns, setCaverns] = useState(0);
+  const [showCaverns, setShowCaverns] = useState(false);
   const [barrens, setBarrens] = useState(0);
+  const [showBarrens, setShowBarrens] = useState(false);
   const [valley, setValley] = useState(0);
+  const [showValley, setShowValley] = useState(false);
   const [boss, setBoss] = useState(0);
+  const [showBoss, setShowBoss] = useState(false);
   const [minion, setMinion] = useState(0);
+  const [showMinion, setShowMinion] = useState(false);
   const [beast, setBeast] = useState(0);
+  const [showBeast, setShowBeast] = useState(false);
   const [titan, setTitan] = useState(0);
-  const totalMonsters = hills + ruins + forest + swamp + mountains + caverns + barrens + valley;
+  const [showTitan, setShowTitan] = useState(false);
+  const [totalMonsters, setTotalMonsters] = useState(0);
+  const [showTotalMonsters, setShowTotalMonsters] = useState(false);
+  const [victoryFromMonsters, setVictoryFromMonsters] = useState(0);
   const monsterState = {
     hills,
     ruins,
@@ -47,76 +61,86 @@ function ScoreBoard() {
     minion,
     beast,
     titan,
-    totalMonsters};
-
-  const [citizenWorker, setCitizenWorker] = useState(0);
-  const [citizenSoldier, setCitizenSoldier] = useState(0);
-  const [citizenShadow, setCitizenShadow] = useState(0);
-  const [citizenHoly, setCitizenHoly] = useState(0);
-  const [totalCitizens, setTotalCitizens] = useState(0);
-  const citizenState = {
-    worker: citizenWorker,
-    soldier: citizenSoldier,
-    shadow: citizenShadow,
-    holy: citizenHoly,
-    totalCitizens,
+    totalMonsters,
+    victoryFromMonsters,
   };
 
-  const [domainWorker, setDomainWorker] = useState(0);
-  const [domainSoldier, setDomainSoldier] = useState(0);
-  const [domainShadow, setDomainShadow] = useState(0);
-  const [domainHoly, setDomainHoly] = useState(0);
+
+  const [totalCitizens, setTotalCitizens] = useState(0);
+  const [showTotalCitizens, setShowTotalCitizens] = useState(false);
   const [totalDomains, setTotalDomains] = useState(0);
-const domainState = {
-  worker: domainWorker,
-  soldier: domainSoldier,
-  shadow: domainShadow,
-  holy: domainHoly,
-  totalDomains,
-};
-  
+  const [showTotalDomains, setShowTotalDomains] = useState(false);
+  const [victoryFromDomain, setVictoryFromDomain] = useState(0);
+  const [worker, setWorker] = useState(0);
+  const [showWorker, setShowWorker] = useState(false);
+  const [shadow, setShadow] = useState(0);
+  const [showShadow, setShowShadow] = useState(false);
+  const [holy, setHoly] = useState(0);
+  const [showHoly, setShowHoly] = useState(false);
+  const [soldier, setSoldier] = useState(0);
+  const [showSoldier, setShowSoldier] = useState(false);
+  const roleState = {
+    totalCitizens,
+    totalDomains,
+    victoryFromDomain,
+    worker,
+    shadow,
+    holy,
+    soldier,
+  };
+
+  const showSetters = {
+    setShowHills,
+    setShowRuins,
+    setShowForest,
+    setShowSwamp,
+    setShowMountains,
+    setShowCaverns,
+    setShowBarrens,
+    setShowValley,
+    setShowBoss,
+    setShowMinion,
+    setShowBeast,
+    setShowTitan,
+    setShowTotalMonsters,
+    setShowTotalCitizens,
+    setShowTotalDomains,
+    setShowWorker,
+    setShowShadow,
+    setShowHoly,
+    setShowSoldier,
+  };
+
+
   return (
     <div className="score-board">
-        <DukeCard monsterState={monsterState} resourceState={resourcesState} citizenState={citizenState} domainsState={domainState}></DukeCard>
+        <DukeCard monsterState={monsterState} resourceState={resourcesState} roleState={roleState} showSetters={showSetters}></DukeCard>
         <ResourceCounter state={resourcesState} setters={resourcesSetters}/>
         <div className="monster-counter">
-        <h3>Monsters</h3>
-        <div>
-            Total Monsters: {totalMonsters}
-        </div>
-        <h4>Monster Area</h4>
-
-      <CounterButtonGroup id='hills-counter' label='Hills' value={hills} setValue={setHills}></CounterButtonGroup>
-      <CounterButtonGroup id='ruins-counter' label='Ruins' value={ruins} setValue={setRuins}></CounterButtonGroup>
-      <CounterButtonGroup id='forest-counter' label='Forest' value={forest} setValue={setForest}></CounterButtonGroup>
-      <CounterButtonGroup id='swamp-counter' label='Swamp' value={swamp} setValue={setSwamp}></CounterButtonGroup>
-      <CounterButtonGroup id='mountains-counter' label='Mountain' value={mountains} setValue={setMountains}></CounterButtonGroup>
-      <CounterButtonGroup id='caverns-counter' label='Caverns' value={caverns} setValue={setCaverns}></CounterButtonGroup>
-      <CounterButtonGroup id='barrens-counter' label='Barrens' value={barrens} setValue={setBarrens}></CounterButtonGroup>
-      <CounterButtonGroup id='valley-counter' label='Valley' value={valley} setValue={setValley}></CounterButtonGroup>
-      <h4>Monster Type</h4>
-      
-      <CounterButtonGroup id='boss-counter' label='Boss' value={boss} setValue={setBoss}></CounterButtonGroup>
-      <CounterButtonGroup id='minion-counter' label='Minion' value={minion} setValue={setMinion}></CounterButtonGroup>
-      <CounterButtonGroup id='beast-counter' label='Beast' value={beast} setValue={setBeast} />
-      <CounterButtonGroup id='titan-counter' label='Titan' value={titan} setValue={setTitan} />
-    
+          {/* <h4>Monster Area</h4> */}
+          <CounterButtonGroup id='victory-from-monsters-counter' label='Victory from Monsters' value={victoryFromMonsters} setValue={setVictoryFromMonsters}></CounterButtonGroup>
+          {/* {showTotalMonsters && <CounterButtonGroup id='total-monsters-counter' label='Total Monsters' value={totalMonsters} setValue={setTotalMonsters}></CounterButtonGroup>}
+          {showHills && <CounterButtonGroup id='hills-counter' label='Hills' value={hills} setValue={setHills}></CounterButtonGroup>}
+          {showRuins && <CounterButtonGroup id='ruins-counter' label='Ruins' value={ruins} setValue={setRuins}></CounterButtonGroup>}
+          {showForest && <CounterButtonGroup id='forest-counter' label='Forest' value={forest} setValue={setForest}></CounterButtonGroup>}
+          {showSwamp && <CounterButtonGroup id='swamp-counter' label='Swamp' value={swamp} setValue={setSwamp}></CounterButtonGroup>}
+          {showMountains && <CounterButtonGroup id='mountains-counter' label='Mountain' value={mountains} setValue={setMountains}></CounterButtonGroup>}
+          {showCaverns && <CounterButtonGroup id='caverns-counter' label='Caverns' value={caverns} setValue={setCaverns}></CounterButtonGroup>}
+          {showBarrens && <CounterButtonGroup id='barrens-counter' label='Barrens' value={barrens} setValue={setBarrens}></CounterButtonGroup>}
+          {showValley && <CounterButtonGroup id='valley-counter' label='Valley' value={valley} setValue={setValley}></CounterButtonGroup>} */}
+          {showBoss && <CounterButtonGroup id='boss-counter' label='Boss' value={boss} setValue={setBoss}></CounterButtonGroup>}
+          {showMinion && <CounterButtonGroup id='minion-counter' label='Minion' value={minion} setValue={setMinion}></CounterButtonGroup>}
+          {showBeast && <CounterButtonGroup id='beast-counter' label='Beast' value={beast} setValue={setBeast} />}
+          {showTitan && <CounterButtonGroup id='titan-counter' label='Titan' value={titan} setValue={setTitan} />}
     </div>
-    <div className="citizen-counter">
-        <h3>Citizens</h3>
-        <CounterButtonGroup id='total-citizens-counter' label='Total Citizens' value={totalCitizens} setValue={setTotalCitizens} />
-        <CounterButtonGroup id='worker-counter' label='Worker' value={citizenWorker} setValue={setCitizenWorker} />
-        <CounterButtonGroup id='soldier-counter' label='Soldier' value={citizenSoldier} setValue={setCitizenSoldier} />
-        <CounterButtonGroup id='shadow-counter' label='Shadow' value={citizenShadow} setValue={setCitizenShadow} />
-        <CounterButtonGroup id='holy-counter' label='Holy' value={citizenHoly} setValue={setCitizenHoly} />
-    </div>
+    {showTotalCitizens && <CounterButtonGroup id='total-citizens-counter' label='Total Citizens' value={totalCitizens} setValue={setTotalCitizens} />}
+    {showWorker && <CounterButtonGroup id='worker-counter' label='Worker' value={worker} setValue={setWorker} />}
+    {showSoldier && <CounterButtonGroup id='soldier-counter' label='Soldier' value={soldier} setValue={setSoldier} />}
+    {showShadow && <CounterButtonGroup id='shadow-counter' label='Shadow' value={shadow} setValue={setShadow} />}
+    {showHoly && <CounterButtonGroup id='holy-counter' label='Holy' value={holy} setValue={setHoly} />}
     <div className="domain-counter">
-        <h2>Domains</h2>
-      <CounterButtonGroup id='total-domains-counter' label='Total Domains' value={totalDomains} setValue={setTotalDomains} />
-      <CounterButtonGroup id='worker-counter' label='Worker' value={domainWorker} setValue={setDomainWorker} />
-      <CounterButtonGroup id='soldier-counter' label='Soldier' value={domainSoldier} setValue={setDomainSoldier} />
-      <CounterButtonGroup id='shadow-counter' label='Shadow' value={domainShadow} setValue={setDomainShadow} />
-      <CounterButtonGroup id='holy-counter' label='Holy' value={domainHoly} setValue={setDomainHoly} />
+      {showTotalDomains && <CounterButtonGroup id='total-domains-counter' label='Total Domains' value={totalDomains} setValue={setTotalDomains} />}
+      <CounterButtonGroup id='victory-from-domain-counter' label='Victory from Domain' value={victoryFromDomain} setValue={setVictoryFromDomain} />
     </div>
     </div>
   );

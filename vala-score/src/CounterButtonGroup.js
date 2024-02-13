@@ -45,6 +45,18 @@ function CounterButtonGroup({ value, setValue, id, label }) {
     <div>
       <label htmlFor={id}>{label}</label>
       <div className='form-group'>
+      <button
+          className='minus-button'
+          onMouseDown={startDecrement}
+          onMouseUp={stopChanging}
+          onMouseLeave={stopChanging}
+          onTouchStart={startDecrement}
+          onTouchEnd={stopChanging}
+          onClick={() => setValue(prevValue => prevValue - 1)}
+        >
+          -
+        </button>
+        <div className='counter-value'>{value}</div>
         <button
           className='plus-button'
           onMouseDown={startIncrement}
@@ -55,18 +67,6 @@ function CounterButtonGroup({ value, setValue, id, label }) {
           onClick={() => setValue(prevValue => prevValue + 1)}
         >
           +
-        </button>
-        <div className='counter-value'>{value}</div>
-        <button
-          className='minus-button'
-          onMouseDown={startDecrement}
-          onMouseUp={stopChanging}
-          onMouseLeave={stopChanging}
-          onTouchStart={startDecrement}
-          onTouchEnd={stopChanging}
-          onClick={() => setValue(prevValue => prevValue - 1)}
-        >
-          -
         </button>
       </div>
     </div>
