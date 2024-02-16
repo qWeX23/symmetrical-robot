@@ -43,6 +43,11 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
           showSetters.setShowShadow(true);
           showSetters.setShowBeast(true);
           break;
+        case 'Drakkenstrike':
+          score = soldier + 2*totalDomains+ (totalResources / 4);
+          showSetters.setShowSoldier(true);
+          showSetters.setShowTotalDomains(true);
+          break;
         case "El'syn, Stain of Shadows":
           score = 2 * holy + 2 * shadow + (totalResources / 4);
           showSetters.setShowHoly(true);
@@ -140,6 +145,11 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
           showSetters.setShowWorker(true);
           showSetters.setShowShadow(true);
           break;
+        case 'Waybright the Wise':
+          score = totalDomains * 2 +worker + (totalResources / 4);
+          showSetters.setShowTotalDomains(true);
+          showSetters.setShowWorker(true);
+          break;
         default:
           score = 0;
       }
@@ -151,6 +161,7 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
           <option value="Aguilar the Gilded Knight">Aguilar the Gilded Knight</option>
           <option value="Cornelius the Dreamer">Cornelius the Dreamer</option>
           <option value="Daniella the Huntress">Daniella the Huntress</option>
+          <option value="Drakkenstrike">Drakkenstrike</option>
           <option value="El'syn, Stain of Shadows">El'syn, Stain of Shadows</option>
           <option value="Elysium the Allsmith">Elysium the Allsmith</option>
           <option value="Gurira the Guardian">Gurira the Guardian</option>
@@ -170,6 +181,7 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
           <option value="Sir Gustavo the Wrathborn">Sir Gustavo the Wrathborn</option>
           <option value="Sir Roberts of Stoneblood">Sir Roberts of Stoneblood</option>
           <option value="Waryn, Master of Rogues">Waryn, Master of Rogues</option>
+          <option value="Waybright the Wise">Waybright the Wise</option>
         </select>
       </div>
     

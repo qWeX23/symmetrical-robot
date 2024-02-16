@@ -1,6 +1,6 @@
 {
   "name": "vala-score",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "homepage": "http://qwex23.github.io/symmetrical-robot/",
   "dependencies": {
