@@ -2,13 +2,12 @@ import React, {useEffect, useState} from 'react';
 import ResourceCounter from './ResourceCounter';
 import CounterButtonGroup from './CounterButtonGroup';
 import DukeCard from './DukeCard';
+import { MultiplayerContext } from './MultiplayerContext';
+import { useContext } from 'react';
 
 
 function ScoreBoard() {
-  const [gold, setGold] = useState(0);
-  const [magic, setMagic] = useState(0);
-  const [fight, setFight] = useState(0);
-  const [preVictory, setPreVictory] = useState(0);
+  const { gold, magic, fight, preVictory, setGold, setMagic, setFight, setPreVictory } = useContext(MultiplayerContext);
   const resourcesState = {
     gold,
     magic,
@@ -111,17 +110,6 @@ function ScoreBoard() {
     setShowHoly,
     setShowSoldier,
   };
-
-  useEffect(() => {
-    socket = io('http://localhost:3000'); // replace with your server URL
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    socket.emit('update', { gold,magic,fight,preVictory});
-  }, [gold,magic,fight,preVictory]);
 
   return (
     <div className="score-board">
