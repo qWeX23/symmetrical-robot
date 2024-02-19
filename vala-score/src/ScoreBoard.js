@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ResourceCounter from './ResourceCounter';
 import CounterButtonGroup from './CounterButtonGroup';
 import DukeCard from './DukeCard';
@@ -112,12 +112,23 @@ function ScoreBoard() {
     setShowSoldier,
   };
 
+  useEffect(() => {
+    socket = io('http://localhost:3000'); // replace with your server URL
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    socket.emit('update', { gold,magic,fight,preVictory});
+  }, [gold,magic,fight,preVictory]);
 
   return (
     <div className="score-board">
       <DukeCard monsterState={monsterState} resourceState={resourcesState} roleState={roleState} showSetters={showSetters}></DukeCard>
       <ResourceCounter state={resourcesState} setters={resourcesSetters}/>
       <div className="monster-counter">
+        {showTotalMonsters && <CounterButtonGroup id='total-monsters-counter' label='Total Monsters' value={totalMonsters} setValue={setTotalMonsters}></CounterButtonGroup>}
         <CounterButtonGroup id='victory-from-monsters-counter' label='Victory from Monsters' value={victoryFromMonsters} setValue={setVictoryFromMonsters}></CounterButtonGroup>
         {showBoss && <CounterButtonGroup id='boss-counter' label='Boss' value={boss} setValue={setBoss}></CounterButtonGroup>}
         {showMinion && <CounterButtonGroup id='minion-counter' label='Minion' value={minion} setValue={setMinion}></CounterButtonGroup>}
