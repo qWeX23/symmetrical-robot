@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 
 function ScoreBoard() {
-  const { gold, magic, fight, preVictory, setGold, setMagic, setFight, setPreVictory } = useContext(MultiplayerContext);
+  const { gold, magic, fight, preVictory,score,duke, setGold, setMagic, setFight, setPreVictory,setScore,setDuke } = useContext(MultiplayerContext);
   const resourcesState = {
     gold,
     magic,
@@ -113,7 +113,7 @@ function ScoreBoard() {
 
   return (
     <div className="score-board">
-      <DukeCard monsterState={monsterState} resourceState={resourcesState} roleState={roleState} showSetters={showSetters}></DukeCard>
+      <DukeCard monsterState={monsterState} resourceState={resourcesState} roleState={roleState} showSetters={showSetters} scoreState={{score,setScore}} dukeState={{duke,setDuke}}></DukeCard>
       <ResourceCounter state={resourcesState} setters={resourcesSetters}/>
       <div className="monster-counter">
         {showTotalMonsters && <CounterButtonGroup id='total-monsters-counter' label='Total Monsters' value={totalMonsters} setValue={setTotalMonsters}></CounterButtonGroup>}

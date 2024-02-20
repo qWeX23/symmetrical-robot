@@ -1,7 +1,8 @@
 import React,{useState} from "react";
 
-function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
-    const [duke, setDuke] = useState("Aguilar the Gilded Knight");
+function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreState,dukeState}) {
+    const {duke, setDuke} = dukeState;
+    //setDuke("Aguilar the Gilded Knight");
     const { hills, ruins, forest, swamp, mountains, caverns, barrens, valley, boss, minion,beast,titan,totalMonsters,victoryFromMonsters} = monsterState;
     const{
       totalCitizens,
@@ -16,7 +17,8 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
     const totalResources = resourceState.gold + resourceState.magic + resourceState.fight;
 
   
-    let score = 0;
+    let {score} = scoreState.score;
+    const setScore = scoreState.setScore;
 
     const resetShowSetters = () => {
       for (let key in showSetters) {
@@ -155,6 +157,7 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters }) {
       }
       score = Math.floor(score);
       score = score + resourceState.preVictory + victoryFromDomain + victoryFromMonsters;
+      setScore(score);
     return( <div className="duke-counter">
     <div>
         <select id="duke-select" value={duke} onChange={(e) => setDuke(e.target.value)}>

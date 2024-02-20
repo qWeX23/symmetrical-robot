@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   width: 100%;
+  background-color: #282c34;
+
 }
 
 .App-header {
@@ -14,10 +16,56 @@
 
 .score-board {
   margin: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 .app-version {
   position: bottom;
   bottom: 0;
   font-size: 0.8em;
+  color:rgb(13, 72, 72)
+}
+
+.MultiplayerTileContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.player-tile {
+  margin: 10px;
+  padding: 1px;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.player-gold {
+  font-size: 1.5em;
+  color: gold;
+}
+.player-magic{
+  font-size: 1.5em;
+  color: #42bbfc;
+}
+.player-fight{
+  font-size: 1.5em;
+  color: #ff0000;
+}
+.player-victory{
+  font-size: 1.5em;
+  color: #c300ea;
+}
+.player-duke-name{
+  font-size: 1.6em;
+font-weight: bold;
+  color: #f6f5d8;
+}
+.player-total-score{
+  font-size: 1.5em;
+  color: #f6f5d8;
 }

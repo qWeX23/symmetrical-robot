@@ -10,11 +10,13 @@ function App() {
   const [magic, setMagic] = useState(0);
   const [fight, setFight] = useState(0);
   const [preVictory, setPreVictory] = useState(0);
+  const [score, setScore] = useState(0);
+  const [duke, setDuke] = useState('Aguilar the Gilded Knight');
   const [serverVersion, setServerVersion] = useState('');
 
   useEffect(() => {
     // Fetch the server version when the component mounts
-    fetch('https://vala-score-be-prod.onrender.com/version') // Replace with your server URL
+    fetch('https://vala-score-be-prod.onrender.com/version')
       .then(response => response.json())
       .then(data => setServerVersion(data.version))
       .catch(error => console.error('Error:', error));
@@ -22,7 +24,7 @@ function App() {
   
   return (
     <div className="App">
-      <MultiplayerContext.Provider value={ {gold, magic, fight, preVictory, setGold, setMagic, setFight, setPreVictory} }>
+      <MultiplayerContext.Provider value={ {gold, magic, fight, preVictory,score,duke, setGold, setMagic, setFight, setPreVictory,setScore,setDuke} }>
         <header className="App-header">
           <ScoreBoard />
         </header>

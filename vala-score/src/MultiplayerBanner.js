@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { MultiplayerContext } from './MultiplayerContext';
 import socket from './socket';
+import PlayerTile from './PlayerTile';
 
 const MultiplayerBanner = () => {
   const [players, setPlayers] = useState([]);
   const [isServerOnline, setServerOnline] = useState(false);
-  const { gold, magic, fight, preVictory } = useContext(MultiplayerContext);
+  const { gold, magic, fight, preVictory, score, duke} = useContext(MultiplayerContext);
   const [roomId, setRoomId] = useState('');
-
+  const [showMultiplayerBanner, setShowMultiplayerBanner] = useState(false); 
   useEffect(() => {
     socket.on('connect', () => {
       console.log(socket.id);
@@ -49,30 +50,33 @@ const MultiplayerBanner = () => {
 
   useEffect(() => {
     if (isServerOnline) {
-      socket.emit('stateUpdate', { gold, magic, fight, preVictory,roomId });
+      socket.emit('stateUpdate', { gold, magic, fight, preVictory,score,duke, roomId });
     }
   }, [gold, magic, fight, preVictory, roomId]);
 
+  const toggleDiv = () => {
+    setShowMultiplayerBanner(!showMultiplayerBanner);
+  };
 
   return (
     <div>
-      <h4>Multiplayer -- coming soon! </h4>
-      <p>Server Status: {isServerOnline ? 'Online' : 'Offline'}</p>
-      <input
-        type="text"
-        placeholder="RoomID"
-        value={roomId}
-        onChange={(e) => setRoomId(e.target.value)}
-      />
-      
-        {players.map((player) => (
-          <div>
-            
-              ID: {player.socketId} Gold: {player.state.gold} Magic: {player.state.magic} Fight: {player.state.fight} Victory: {player.state.preVictory}
-            
+        <button onClick={toggleDiv}>Multiplayer</button>
+      {showMultiplayerBanner &&
+        <div> 
+          <p><span style={{ color: isServerOnline ? 'green' : 'red' }}>{isServerOnline ? 'Online' : 'Offline'}</span></p>
+          <input
+            type="text"
+            placeholder="RoomID"
+            value={roomId}
+            onChange={(e) => setRoomId(e.target.value)}
+          />
+          <div className='MultiplayerTileContainer'>
+            {players.map((player) => (
+              <PlayerTile key={player.socketId} player={player} />
+            ))}
           </div>
-        ))}
-      
+        </div>
+      }
     </div>
   );
 };
