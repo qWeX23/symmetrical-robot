@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/symmetrical-robot/static/css/main.bfaee94a.css",
-    "main.js": "/symmetrical-robot/static/js/main.84cd17cd.js",
+    "main.css": "/symmetrical-robot/static/css/main.5acb6485.css",
+    "main.js": "/symmetrical-robot/static/js/main.5ca5dd34.js",
     "static/js/787.fd003979.chunk.js": "/symmetrical-robot/static/js/787.fd003979.chunk.js",
     "index.html": "/symmetrical-robot/index.html",
-    "main.bfaee94a.css.map": "/symmetrical-robot/static/css/main.bfaee94a.css.map",
-    "main.84cd17cd.js.map": "/symmetrical-robot/static/js/main.84cd17cd.js.map",
+    "main.5acb6485.css.map": "/symmetrical-robot/static/css/main.5acb6485.css.map",
+    "main.5ca5dd34.js.map": "/symmetrical-robot/static/js/main.5ca5dd34.js.map",
     "787.fd003979.chunk.js.map": "/symmetrical-robot/static/js/787.fd003979.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfaee94a.css",
-    "static/js/main.84cd17cd.js"
+    "static/css/main.5acb6485.css",
+    "static/js/main.5ca5dd34.js"
   ]
 }
