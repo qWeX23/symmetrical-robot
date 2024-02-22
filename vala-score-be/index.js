@@ -3,9 +3,24 @@ const http = require('http');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const { version } = require('./package.json');
+const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
 app.use(cors()); // Enable CORS
+app.use((req, res, next) => {
+  // Respond to preflight CORS requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
+  next();
+});
+app.use(bodyParser.json());
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -24,7 +39,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('stateUpdate', (state) => {
-    console.log('Received state update:', state);
+    console.log('Received state update for room:', state.roomId);
     socket.join(state.roomId);
     io.to(state.roomId).emit('playersUpdate', { state, socketId: socket.id });
   });
@@ -36,6 +51,40 @@ app.get('/', (req, res) => {
 });
 app.get('/version', (req, res) => {
   res.send({version});
+}); 
+app.post('/navigator', async (req, res) => {
+  console.log('Received navigator object');
+  const navData = {
+    nav: req.body,
+    date: new Date()
+  };
+  try {
+    await client.connect();
+    const collection = client.db("vala_score").collection("navigator_data");
+    const result = await collection.insertOne(navData);
+    console.log(`Navigator object saved with _id: ${result.insertedId}`);
+    res.send('Navigator object saved');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error saving navigator object');
+  } finally {
+    await client.close();
+  }
+});
+
+app.post('/metrics', async (req, res) => {
+    try {
+      await client.connect();
+      const collection = client.db("vala_score").collection("browser_metrics"); 
+      const result = await collection.insertOne(req.body);
+      console.log(`Metrics saved with _id: ${result.insertedId}`);
+      res.send('Received metrics');
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error saving metrics');
+    } finally {
+      await client.close();
+    }
 });
 
 port = process.env.PORT || 3001;

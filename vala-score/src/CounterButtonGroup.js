@@ -15,7 +15,6 @@ function CounterButtonGroup({ value, setValue, id, label }) {
   }, []);
 
   const startIncrement = () => {
-
     if (isMounted.current) {
       clearInterval(intervalId);
       setIntervalId(

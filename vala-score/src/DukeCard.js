@@ -2,7 +2,6 @@ import React,{useState} from "react";
 
 function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreState,dukeState}) {
     const {duke, setDuke} = dukeState;
-    //setDuke("Aguilar the Gilded Knight");
     const { hills, ruins, forest, swamp, mountains, caverns, barrens, valley, boss, minion,beast,titan,totalMonsters,victoryFromMonsters} = monsterState;
     const{
       totalCitizens,

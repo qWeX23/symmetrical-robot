@@ -4,6 +4,7 @@ import { MultiplayerContext } from './MultiplayerContext';
 import ScoreBoard from './ScoreBoard';
 import packageInfo from '../package.json'; 
 import MultiplayerBanner from './MultiplayerBanner';
+import { fetchServerVersion, sendNavigatorData } from './api/backend';
 
 function App() {
   const [gold, setGold] = useState(0);
@@ -15,10 +16,12 @@ function App() {
   const [serverVersion, setServerVersion] = useState('');
 
   useEffect(() => {
-    // Fetch the server version when the component mounts
-    fetch('https://vala-score-be-prod.onrender.com/version')
-      .then(response => response.json())
-      .then(data => setServerVersion(data.version))
+    fetchServerVersion()
+      .then(version => setServerVersion(version))
+      .catch(error => console.error('Error:', error));
+
+    sendNavigatorData()
+      .then(data => console.log('Data:', data))
       .catch(error => console.error('Error:', error));
   }, []);
   
