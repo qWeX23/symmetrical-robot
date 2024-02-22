@@ -9,7 +9,7 @@ env:
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     environment: 
       name: GHA backend deploy
