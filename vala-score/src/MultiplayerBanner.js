@@ -52,7 +52,7 @@ const MultiplayerBanner = () => {
     if (isServerOnline) {
       socket.emit('stateUpdate', { gold, magic, fight, preVictory,score,duke, roomId });
     }
-  }, [gold, magic, fight, preVictory, roomId]);
+  }, [gold, magic, fight, preVictory,score,isServerOnline,duke, roomId]);
 
   const toggleDiv = () => {
     setShowMultiplayerBanner(!showMultiplayerBanner);

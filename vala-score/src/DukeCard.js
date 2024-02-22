@@ -1,8 +1,8 @@
-import React,{useState} from "react";
+import React from "react";
 
 function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreState,dukeState}) {
     const {duke, setDuke} = dukeState;
-    const { hills, ruins, forest, swamp, mountains, caverns, barrens, valley, boss, minion,beast,titan,totalMonsters,victoryFromMonsters} = monsterState;
+    const { boss, minion,beast,titan,totalMonsters,victoryFromMonsters} = monsterState;
     const{
       totalCitizens,
       totalDomains,

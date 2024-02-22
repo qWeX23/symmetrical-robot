@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import ResourceCounter from './ResourceCounter';
 import CounterButtonGroup from './CounterButtonGroup';
 import DukeCard from './DukeCard';
@@ -21,22 +21,22 @@ function ScoreBoard() {
     setPreVictory,
   };
 
-  const [hills, setHills] = useState(0);
-  const [showHills, setShowHills] = useState(false);
-  const [ruins, setRuins] = useState(0);
-  const [showRuins, setShowRuins] = useState(false);
-  const [forest, setForest] = useState(0);
-  const [showForest, setShowForest] = useState(false);
-  const [swamp, setSwamp] = useState(0);
-  const [showSwamp, setShowSwamp] = useState(false);
-  const [mountains, setMountains] = useState(0);
-  const [showMountains, setShowMountains] = useState(false);
-  const [caverns, setCaverns] = useState(0);
-  const [showCaverns, setShowCaverns] = useState(false);
-  const [barrens, setBarrens] = useState(0);
-  const [showBarrens, setShowBarrens] = useState(false);
-  const [valley, setValley] = useState(0);
-  const [showValley, setShowValley] = useState(false);
+  const [hills, ] = useState(0);
+  const [, setShowHills] = useState(false);
+  const [ruins, ] = useState(0);
+  const [, setShowRuins] = useState(false);
+  const [forest, ] = useState(0);
+  const [, setShowForest] = useState(false);
+  const [swamp, ] = useState(0);
+  const [, setShowSwamp] = useState(false);
+  const [mountains, ] = useState(0);
+  const [, setShowMountains] = useState(false);
+  const [caverns, ] = useState(0);
+  const [, setShowCaverns] = useState(false);
+  const [barrens, ] = useState(0);
+  const [, setShowBarrens] = useState(false);
+  const [valley, ] = useState(0);
+  const [, setShowValley] = useState(false);
   const [boss, setBoss] = useState(0);
   const [showBoss, setShowBoss] = useState(false);
   const [minion, setMinion] = useState(0);
