@@ -21,6 +21,10 @@ app.use(bodyParser.json());
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useUnifiedTopology: true,maxPoolSize: 10});
+client
+  .connect()
+  .then(() => {console.log('Connected to MongoDB')})
+  .catch(err => console.error(err));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
@@ -59,7 +63,6 @@ app.post('/navigator', async (req, res) => {
     date: new Date()
   };
   try {
-    await client.connect();
     const collection = client.db("vala_score").collection("navigator_data");
     const result = await collection.insertOne(navData);
     console.log(`Navigator object saved with _id: ${result.insertedId}`);
@@ -67,14 +70,11 @@ app.post('/navigator', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error saving navigator object');
-  } finally {
-    await client.close();
   }
 });
 
 app.post('/metrics', async (req, res) => {
     try {
-      await client.connect();
       const collection = client.db("vala_score").collection("browser_metrics"); 
       const result = await collection.insertOne(req.body);
       console.log(`Metrics saved with _id: ${result.insertedId}`);
@@ -82,8 +82,6 @@ app.post('/metrics', async (req, res) => {
     } catch (err) {
       console.error(err);
       res.status(500).send('Error saving metrics');
-    } finally {
-      await client.close();
     }
 });
 
