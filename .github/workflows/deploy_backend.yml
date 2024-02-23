@@ -26,6 +26,9 @@ jobs:
       with:
         username: ${{ env.DOCKERHUB_USERNAME }}
         password: ${{ env.DOCKERHUB_TOKEN }}
+    - name: Set git credentials
+      run: |
+          git config --global url."https://x-access-token:${{ secrets.MY_PERSONAL_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
     - name: Build and push
       uses: docker/build-push-action@v2

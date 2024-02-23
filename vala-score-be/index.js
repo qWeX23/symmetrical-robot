@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri, { useUnifiedTopology: true,maxPoolSize: 10});
 
 const server = http.createServer(app);
 const io = socketIo(server, {
