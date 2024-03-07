@@ -5,6 +5,7 @@ import ScoreBoard from './ScoreBoard';
 import packageInfo from '../package.json'; 
 import MultiplayerBanner from './MultiplayerBanner';
 import { fetchServerVersion, sendNavigatorData } from './api/backend';
+import bannerlogo from './images/ValeriaCK_Logopng.png';
 
 function App() {
   const [gold, setGold] = useState(0);
@@ -27,13 +28,12 @@ function App() {
   
   return (
     <div className="App">
+      <img src={bannerlogo} alt="Valeria Logo" className="vala-logo" />
       <MultiplayerContext.Provider value={ {gold, magic, fight, preVictory,score,duke, setGold, setMagic, setFight, setPreVictory,setScore,setDuke} }>
-        <header className="App-header">
-          <ScoreBoard />
-        </header>
-        <MultiplayerBanner />
+        <ScoreBoard />
+        {/* <MultiplayerBanner /> */}
       </MultiplayerContext.Provider>
-      <div className='app-version'>Client: v{packageInfo.version} Server: v{serverVersion}</div>
+      <div className='app-version'>Client: v{packageInfo.version}</div>
     </div>
   );
 }

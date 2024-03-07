@@ -1,4 +1,66 @@
 import React from "react";
+import Select, { components } from 'react-select';import { calculateDukeScore } from "./DukeCalculator";
+import aguilarPortrait from './images/dukePortraitsSmall/aguilar-the-gilded-knight.jpg';
+import corneliusPortrait from './images/dukePortraitsSmall/cornelius-the-dreamer.jpg';
+import danielaPortrait from './images/dukePortraitsSmall/daniela-the-huntress.jpg';
+import drakkenstrikePortrait from './images/dukePortraitsSmall/drakkenstrike.jpg';
+import elsynPortrait from './images/dukePortraitsSmall/elsyn-saint-of-shadows.jpg';
+import elysiumPortrait from './images/dukePortraitsSmall/elysium-the-allsmith.jpg';
+import guriraPortrait from './images/dukePortraitsSmall/gurira-the-guardian.jpg';
+import mariannaPortrait from './images/dukePortraitsSmall/high-priestess-marianna.jpg';
+import hrothgarPortrait from './images/dukePortraitsSmall/hrothgar-the-conqueror.jpg';
+import isabellaPortrait from './images/dukePortraitsSmall/isabella-the-righteous.jpg';
+import jeskalaPortrait from './images/dukePortraitsSmall/jeskala-the-joyous-knight.jpg';
+import karstenPortrait from './images/dukePortraitsSmall/karsten-the-wolf.jpg';
+import lekzandrPortrait from './images/dukePortraitsSmall/lekzandr-the-protector.jpg';
+import micoPortrait from './images/dukePortraitsSmall/mico-the-monster-slayer.jpg';
+import mulhollandPortrait from './images/dukePortraitsSmall/mulholland-the-brave.jpg';
+import nodePortrait from './images/dukePortraitsSmall/node-master-of-swords.jpg';
+import pascalPortrait from './images/dukePortraitsSmall/pascal-the-gray-hunter.jpg';
+import reesePortrait from './images/dukePortraitsSmall/reese-the-firebrand.jpg';
+import shemPortrait from './images/dukePortraitsSmall/shem-the-north-sea-guardian.jpg';
+import simonPortrait from './images/dukePortraitsSmall/simon-the-unclean.jpg';
+import gustavoPortrait from './images/dukePortraitsSmall/sir-gustavo-the-wrathborn.jpg';
+import robertsPortrait from './images/dukePortraitsSmall/sir-roberts-of-stoneblood.jpg';
+import warynPortrait from './images/dukePortraitsSmall/waryn-lord-of-rogues.jpg';
+import waybrightPortrait from './images/dukePortraitsSmall/waybright-the-wise.jpg';
+
+const options = [
+  { value: 'Aguilar the Gilded Knight', label: 'Aguilar the Gilded Knight', image: aguilarPortrait },
+  { value: 'Cornelius the Dreamer', label: 'Cornelius the Dreamer', image: corneliusPortrait },
+  { value: 'Daniela the Huntress', label: 'Daniela the Huntress', image: danielaPortrait },
+  { value: 'Drakkenstrike', label: 'Drakkenstrike', image: drakkenstrikePortrait },
+  { value: "El'syn, Saint of Shadows", label: "El'syn, Saint of Shadows", image: elsynPortrait },
+  { value: 'Elysium the Allsmith', label: 'Elysium the Allsmith', image: elysiumPortrait },
+  { value: 'Gurira the Guardian', label: 'Gurira the Guardian', image: guriraPortrait },
+  { value: 'High Priestess Marianna', label: 'High Priestess Marianna', image: mariannaPortrait },
+  { value: 'Hrothgar the Conqueror', label: 'Hrothgar the Conqueror', image: hrothgarPortrait },
+  { value: 'Isabella the Righteous', label: 'Isabella the Righteous', image: isabellaPortrait },
+  { value: 'Jes\'kala the Joyous Knight', label: 'Jes\'kala the Joyous Knight', image: jeskalaPortrait },
+  { value: 'Karsten the Wolf', label: 'Karsten the Wolf', image: karstenPortrait },
+  { value: 'Lekzand\'r the Protector', label: 'Lekzand\'r the Protector', image: lekzandrPortrait },
+  { value: 'Mico the Monster Slayer', label: 'Mico the Monster Slayer', image: micoPortrait },
+  { value: 'Mulholland the Brave', label: 'Mulholland the Brave', image: mulhollandPortrait },
+  { value: 'Node, Master of Swords', label: 'Node, Master of Swords', image: nodePortrait },
+  { value: 'Pas\'cal the Gray Hunter', label: 'Pas\'cal the Gray Hunter', image: pascalPortrait },
+  { value: 'Reese the Firebrand', label: 'Reese the Firebrand', image: reesePortrait },
+  { value: 'Shem the North Sea Guardian', label: 'Shem the North Sea Guardian', image: shemPortrait },
+  { value: 'Simon the Unclean', label: 'Simon the Unclean', image: simonPortrait },
+  { value: 'Sir Gustavo the Wrathborn', label: 'Sir Gustavo the Wrathborn', image: gustavoPortrait },
+  { value: 'Sir Roberts of Stoneblood', label: 'Sir Roberts of Stoneblood', image: robertsPortrait },
+  { value: 'Waryn, Master of Rogues', label: 'Waryn, Master of Rogues', image: warynPortrait },
+  { value: 'Waybright the Wise', label: 'Waybright the Wise', image: waybrightPortrait },
+];
+const CustomOption = ({ children, ...props }) => {
+  return (
+    <components.Option {...props}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={props.data.image} alt={props.data.label} width="50" height="50" />
+        <span style={{ marginLeft: '10px' }}>{children}</span>
+      </div>
+    </components.Option>
+  );
+};
 
 function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreState,dukeState}) {
     const {duke, setDuke} = dukeState;
@@ -25,140 +87,36 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreSt
               showSetters[key](false);
           }
       }
-  };
-  resetShowSetters();
+    };
+    resetShowSetters();
+    score = calculateDukeScore(duke.value, totalMonsters, totalDomains, totalResources, shadow, beast, soldier, holy, worker, minion, titan, totalCitizens, boss, showSetters, resourceState, victoryFromDomain, victoryFromMonsters);
+    setScore(score); 
 
 
-    switch (duke) {
-        case 'Aguilar the Gilded Knight':
-          score = totalMonsters + 2 * totalDomains + (totalResources / 4);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowTotalDomains(true);
-          break;
-        case 'Cornelius the Dreamer':
-          score = 3 * totalDomains + (totalResources / 3);
-          showSetters.setShowTotalDomains(true);
-          break;
-        case 'Daniella the Huntress':
-          score = 2 * shadow + 2 * beast + (totalResources / 3);
-          showSetters.setShowShadow(true);
-          showSetters.setShowBeast(true);
-          break;
-        case 'Drakkenstrike':
-          score = soldier + 2*totalDomains+ (totalResources / 4);
-          showSetters.setShowSoldier(true);
-          showSetters.setShowTotalDomains(true);
-          break;
-        case "El'syn, Stain of Shadows":
-          score = 2 * holy + 2 * shadow + (totalResources / 4);
-          showSetters.setShowHoly(true);
-          showSetters.setShowShadow(true);
-          break;
-        case 'Elysium the Allsmith':
-          score = worker + soldier + shadow + holy + (totalResources / 4);
-          showSetters.setShowWorker(true);
-          showSetters.setShowSoldier(true);
-          showSetters.setShowShadow(true);
-          showSetters.setShowHoly(true);
-          break;
-        case 'Gurira the Guardian':
-          score = totalMonsters + holy + (totalResources / 3);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowHoly(true);
-          break;
-        case 'High Priestess Marianna':
-          score = 2 * holy + minion + (totalResources / 3);
-          showSetters.setShowHoly(true);
-          showSetters.setShowMinion(true);
-          break;
-        case 'Hrothgar the Conqueror':
-          score = 2 * totalMonsters + titan + (totalResources / 4);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowTitan(true);
-          break;
-        case 'Isabella the Righteous':
-          score = soldier + 2 * holy + (totalResources / 3);
-          showSetters.setShowSoldier(true);
-          showSetters.setShowHoly(true);
-          break;
-        case 'Jes\'kala the Joyous Knight':
-          score = 2 * totalMonsters + totalDomains + (totalResources / 4);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowTotalDomains(true);
-          break;
-        case 'Karsten the Wolf':
-          score = worker + totalCitizens + (totalResources / 4);
-          showSetters.setShowWorker(true);
-          showSetters.setShowTotalCitizens(true);
-          break;
-        case 'Lekzand\'r the Protector':
-          score = worker + 2 * holy + (totalResources / 3);
-          showSetters.setShowWorker(true);
-          showSetters.setShowHoly(true);
-          break;
-        case 'Mico the Monster Slayer':
-          score = totalMonsters + 5 * boss + (totalResources / 2);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowBoss(true);
-          break;
-        case 'Mulholland the Brave':
-          score = 2 * totalCitizens + (totalResources / 4);
-          showSetters.setShowTotalCitizens(true);
-          break;
-        case 'Node, Master of Swords':
-          score = soldier + 2 * shadow + (totalResources / 3);
-          showSetters.setShowSoldier(true);
-          showSetters.setShowShadow(true);
-          break;
-        case 'Pas\'cal the Gray Hunter':
-          score = 2 * totalMonsters + soldier + (totalResources / 5);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowSoldier(true);
-          break;
-        case 'Reese the Firebrand':
-          score = totalCitizens + totalDomains + totalMonsters + (totalResources / 4);
-          showSetters.setShowTotalCitizens(true);
-          showSetters.setShowTotalDomains(true);
-          showSetters.setShowTotalMonsters(true);
-          break;
-        case 'Shem the North Sea Guardian':
-          score = 2 * totalMonsters + worker + (totalResources / 5);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowWorker(true);
-          break;
-        case 'Simon the Unclean':
-          score = worker + soldier + (totalResources / 2);
-          showSetters.setShowWorker(true);
-          showSetters.setShowSoldier(true);
-          break;
-        case 'Sir Gustavo the Wrathborn':
-          score = 2 * soldier + totalDomains + (totalResources / 5);
-          showSetters.setShowSoldier(true);
-          showSetters.setShowTotalDomains(true);
-          break;
-        case 'Sir Roberts of Stoneblood':
-          score = totalMonsters + shadow + (totalResources / 3);
-          showSetters.setShowTotalMonsters(true);
-          showSetters.setShowShadow(true);
-          break;
-        case 'Waryn, Master of Rogues':
-          score = worker + 2 * shadow + (totalResources / 3);
-          showSetters.setShowWorker(true);
-          showSetters.setShowShadow(true);
-          break;
-        case 'Waybright the Wise':
-          score = totalDomains * 2 +worker + (totalResources / 4);
-          showSetters.setShowTotalDomains(true);
-          showSetters.setShowWorker(true);
-          break;
-        default:
-          score = 0;
-      }
-      score = Math.floor(score);
-      score = score + resourceState.preVictory + victoryFromDomain + victoryFromMonsters;
-      setScore(score);
+    //setup the select 
+   
     return( <div className="duke-counter">
-    <div>
+       <Select
+        className="duke-select"
+        value={duke}
+        onChange={selectedOption => setDuke(selectedOption)}
+        options={options}
+        components={{
+          Option: CustomOption,
+        }}
+        placeholder="Select your Duke"
+    />
+   
+      <h2 className="score-text">
+        Score: {score}
+      </h2>
+  </div>
+);
+}
+export default DukeCard;
+
+
+ {/* <div>
         <select id="duke-select" value={duke} onChange={(e) => setDuke(e.target.value)}>
           <option value="Aguilar the Gilded Knight">Aguilar the Gilded Knight</option>
           <option value="Cornelius the Dreamer">Cornelius the Dreamer</option>
@@ -185,12 +143,4 @@ function DukeCard({ monsterState, resourceState, roleState, showSetters, scoreSt
           <option value="Waryn, Master of Rogues">Waryn, Master of Rogues</option>
           <option value="Waybright the Wise">Waybright the Wise</option>
         </select>
-      </div>
-    
-    <h2>
-      Score: {score}
-    </h2>
-  </div>
-);
-}
-export default DukeCard;
+      </div> */}

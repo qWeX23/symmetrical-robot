@@ -1,6 +1,6 @@
 {
   "name": "vala-score",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "homepage": "http://qwex23.github.io/symmetrical-robot/",
   "dependencies": {
@@ -11,6 +11,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "uuid": "^9.0.1",

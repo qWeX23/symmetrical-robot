@@ -1,12 +1,13 @@
+:root {
+  --main-bg-color: #231f20;
+}
+
+
+
 .App {
   text-align: center;
   width: 100%;
-  background-color: #282c34;
-
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: var(--main-bg-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,12 +18,13 @@
 .score-board {
   margin: 10px;
   margin-bottom: 10px;
+  
 }
 .app-version {
   position: bottom;
   bottom: 0;
   font-size: 0.8em;
-  color:rgb(13, 72, 72)
+  color:#7b308a
 }
 
 .MultiplayerTileContainer {
@@ -37,7 +39,7 @@
 .player-tile {
   margin: 10px;
   padding: 1px;
-  background-color: #282c34;
+  background-color: var(--main-bg-color);
   color: white;
   display: flex;
   flex-direction: column;
@@ -68,4 +70,12 @@ font-weight: bold;
 .player-total-score{
   font-size: 1.5em;
   color: #f6f5d8;
+}
+.score-text {
+  font-weight: 100;
+}
+.duke-select {
+  align-items: center;
+  color: #000000;
+  background-color: #f6f5d8;
 }
