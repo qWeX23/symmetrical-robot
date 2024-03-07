@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { MultiplayerContext } from './MultiplayerContext';
 import ScoreBoard from './ScoreBoard';
 import packageInfo from '../package.json'; 
-import MultiplayerBanner from './MultiplayerBanner';
-import { fetchServerVersion, sendNavigatorData } from './api/backend';
+import { sendNavigatorData } from './api/backend';
 import bannerlogo from './images/ValeriaCK_Logopng.png';
 
 function App() {
@@ -14,13 +13,8 @@ function App() {
   const [preVictory, setPreVictory] = useState(0);
   const [score, setScore] = useState(0);
   const [duke, setDuke] = useState('Aguilar the Gilded Knight');
-  const [serverVersion, setServerVersion] = useState('');
 
   useEffect(() => {
-    fetchServerVersion()
-      .then(version => setServerVersion(version))
-      .catch(error => console.error('Error:', error));
-
     sendNavigatorData()
       .then(data => console.log('Data:', data))
       .catch(error => console.error('Error:', error));
