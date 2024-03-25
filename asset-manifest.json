@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/symmetrical-robot/static/css/main.2048f956.css",
-    "main.js": "/symmetrical-robot/static/js/main.9030933b.js",
+    "main.js": "/symmetrical-robot/static/js/main.db3ced12.js",
     "static/js/787.fd003979.chunk.js": "/symmetrical-robot/static/js/787.fd003979.chunk.js",
     "static/media/ValeriaCK_Logopng.png": "/symmetrical-robot/static/media/ValeriaCK_Logopng.6bccaac619eb29b6cf07.png",
     "static/media/dwarvenaxebb_ital.otf": "/symmetrical-robot/static/media/dwarvenaxebb_ital.eb148e82f19961eaf5d6.otf",
     "static/media/dwarvenaxebb.otf": "/symmetrical-robot/static/media/dwarvenaxebb.440567101b62db2484b1.otf",
     "index.html": "/symmetrical-robot/index.html",
     "main.2048f956.css.map": "/symmetrical-robot/static/css/main.2048f956.css.map",
-    "main.9030933b.js.map": "/symmetrical-robot/static/js/main.9030933b.js.map",
+    "main.db3ced12.js.map": "/symmetrical-robot/static/js/main.db3ced12.js.map",
     "787.fd003979.chunk.js.map": "/symmetrical-robot/static/js/787.fd003979.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2048f956.css",
-    "static/js/main.9030933b.js"
+    "static/js/main.db3ced12.js"
   ]
 }
