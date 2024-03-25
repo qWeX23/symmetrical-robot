@@ -1,6 +1,6 @@
-export function calculateDukeScore(duke, totalMonsters, totalDomains, totalResources, shadow, beast, soldier, holy, worker, minion, titan, totalCitizens, boss, showSetters, resourceState, victoryFromDomain, victoryFromMonsters){
-let score;
-switch (duke) {
+export function calculateDukeScore(duke, totalMonsters, totalDomains, totalResources, shadow, beast, soldier, holy, worker, minion, titan, totalCitizens, boss, showSetters, resourceState, victoryFromDomain, victoryFromMonsters) {
+  let score;
+  switch (duke) {
     case 'Aguilar the Gilded Knight':
       score = totalMonsters + 2 * totalDomains + (totalResources / 4);
       showSetters.setShowTotalMonsters(true);
@@ -16,11 +16,11 @@ switch (duke) {
       showSetters.setShowBeast(true);
       break;
     case 'Drakkenstrike':
-      score = soldier + 2*totalDomains+ (totalResources / 4);
+      score = soldier + 2 * totalDomains + (totalResources / 4);
       showSetters.setShowSoldier(true);
       showSetters.setShowTotalDomains(true);
       break;
-    case "El'syn, Stain of Shadows":
+    case "El'syn, Saint of Shadows":
       score = 2 * holy + 2 * shadow + (totalResources / 4);
       showSetters.setShowHoly(true);
       showSetters.setShowShadow(true);
@@ -112,13 +112,13 @@ switch (duke) {
       showSetters.setShowTotalMonsters(true);
       showSetters.setShowShadow(true);
       break;
-    case 'Waryn, Master of Rogues':
+    case 'Waryn, Lord of Rogues':
       score = worker + 2 * shadow + (totalResources / 3);
       showSetters.setShowWorker(true);
       showSetters.setShowShadow(true);
       break;
     case 'Waybright the Wise':
-      score = totalDomains * 2 +worker + (totalResources / 4);
+      score = totalDomains * 2 + worker + (totalResources / 4);
       showSetters.setShowTotalDomains(true);
       showSetters.setShowWorker(true);
       break;

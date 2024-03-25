@@ -48,7 +48,7 @@ const options = [
   { value: 'Simon the Unclean', label: 'Simon the Unclean', image: simonPortrait },
   { value: 'Sir Gustavo the Wrathborn', label: 'Sir Gustavo the Wrathborn', image: gustavoPortrait },
   { value: 'Sir Roberts of Stoneblood', label: 'Sir Roberts of Stoneblood', image: robertsPortrait },
-  { value: 'Waryn, Master of Rogues', label: 'Waryn, Master of Rogues', image: warynPortrait },
+  { value: 'Waryn, Lord of Rogues', label: 'Waryn, Lord of Rogues', image: warynPortrait },
   { value: 'Waybright the Wise', label: 'Waybright the Wise', image: waybrightPortrait },
 ];
 const CustomOption = ({ children, ...props }) => {
